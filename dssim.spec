@@ -1,3 +1,4 @@
+# NOTE: for versions >= 2 (rewritten in rust, no C library, limited archs set) see dssim2.spec
 Summary:	Tool to compute (dis)similarity between two or more images
 Summary(pl.UTF-8):	Narzędzie do obliczania (nie)podobieństwa dwóch lub większej liczby obrazów
 Name:		dssim
