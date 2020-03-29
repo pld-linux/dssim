@@ -2,18 +2,19 @@
 Summary:	Tool to compute (dis)similarity between two or more images
 Summary(pl.UTF-8):	Narzędzie do obliczania (nie)podobieństwa dwóch lub większej liczby obrazów
 Name:		dssim
-Version:	1.3.2
+Version:	1.3.3
 Release:	1
 License:	AGPL v3+
 Group:		Applications/Graphics
 #Source0Download: https://github.com/pornel/dssim/releases
 Source0:	https://github.com/pornel/dssim/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	20072b430c94edb8c665ba87be00af3e
+# Source0-md5:	4bd83d9c553f6855da581ea6e0c41e03
 Patch0:		%{name}-meson.patch
 URL:		https://kornel.ski/dssim
 BuildRequires:	libpng-devel
-BuildRequires:	meson
-BuildRequires:	ninja
+BuildRequires:	meson >= 0.35.0
+BuildRequires:	ninja >= 1.5
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	zlib-devel
 Requires:	%{name}-libs = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -62,21 +63,14 @@ Plik nagłówkowy biblioteki DSSIM.
 %patch0 -p1
 
 %build
-CC="%{__cc}" \
-CFLAGS="%{rpmcflags} %{rpmcppflags}" \
-LDFLAGS="%{rpmldflags}" \
-meson build \
-	--buildtype=plain \
-	--prefix=%{_prefix} \
-	--libdir=%{_libdir}
+%meson build
 
-ninja -C build -v
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-DESTDIR=$RPM_BUILD_ROOT \
-ninja -C build -v install
+%ninja_install -C build
 
 %clean
 rm -rf $RPM_BUILD_ROOT
