@@ -3,7 +3,7 @@ Summary:	Tool to compute (dis)similarity between two or more images
 Summary(pl.UTF-8):	Narzędzie do obliczania (nie)podobieństwa dwóch lub większej liczby obrazów
 Name:		dssim
 Version:	1.3.3
-Release:	1
+Release:	2
 License:	AGPL v3+
 Group:		Applications/Graphics
 #Source0Download: https://github.com/pornel/dssim/releases
@@ -80,11 +80,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.md
 %attr(755,root,root) %{_bindir}/dssim
 
 %files libs
 %defattr(644,root,root,755)
+%doc README.md
 %attr(755,root,root) %{_libdir}/libdssim-lib.so.*.*
 %attr(755,root,root) %ghost %{_libdir}/libdssim-lib.so.1
 
