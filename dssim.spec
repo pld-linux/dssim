@@ -1,4 +1,4 @@
-# NOTE: for versions >= 2 (rewritten in rust, no C library, limited archs set) see dssim2.spec
+# NOTE: for versions >= 2 (rewritten in rust, limited C library, limited archs set) see dssim2.spec
 Summary:	Tool to compute (dis)similarity between two or more images
 Summary(pl.UTF-8):	Narzędzie do obliczania (nie)podobieństwa dwóch lub większej liczby obrazów
 Name:		dssim
@@ -14,7 +14,7 @@ URL:		https://kornel.ski/dssim
 BuildRequires:	libpng-devel
 BuildRequires:	meson >= 0.35.0
 BuildRequires:	ninja >= 1.5
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	zlib-devel
 Requires:	%{name}-libs = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
